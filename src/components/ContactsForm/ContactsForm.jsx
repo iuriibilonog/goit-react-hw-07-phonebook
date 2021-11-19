@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addContact}  from '../../redux/contacts/contacts-operation';
 import PropTypes from 'prop-types';
 import s from './ContactsForm.module.css'
-import { isAlreadyHasContact } from '../../utils/helter';
+import { isAlreadyHasContact } from '../../utils/helper';
+import { getItems } from '../../redux/contacts/contacts-selectors';
 
 
 function ContactsForm() {
 
   const dispatch = useDispatch();
-  const { items } = useSelector((state) => state.contacts)
+  const items  = useSelector(getItems)
   
 
   const [name, setName] = useState('')

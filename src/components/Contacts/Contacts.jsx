@@ -1,5 +1,4 @@
 import s from './Contacts.module.css';
-import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact, getContacts } from '../../redux/contacts/contacts-operation';
 import { getItems, getFilter, getLoading } from '../../redux/contacts/contacts-selectors';
@@ -18,8 +17,7 @@ const Contacts = () => {
   
   useEffect(() => {
     dispatch(getContacts())
-    
-  }, [])
+  }, [dispatch])
 
   
   
@@ -46,19 +44,6 @@ const Contacts = () => {
     </ul>
     
   )
-}
-
-Contacts.propTypes = {
-  contactsArr: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
-    })
-      
-  ),
-  deleteContact: PropTypes.func
-  
 }
 
 export default Contacts;
